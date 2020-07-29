@@ -1,6 +1,8 @@
 console.log('[Junio Horniche] Flappy Bird');
 
 let frames = 0;
+
+//Efeito de sonoro colisao
 const som_HIT = new Audio();
 som_HIT.src = './efeitos/hit.wav';
 
@@ -227,9 +229,11 @@ function criaCanos(){
       if(globais.flappyBird.x >= par.x){
         //console.log('Flappy Bird invadiu a area dos canos');
         if(cabecaDoFlappy <= par.canoCeu.y){
+          som_HIT.play();
           return true;
         }
         if(peDoFlappy >= par.canoChao.y){
+          som_HIT.play();
           return true;
         }
       }
